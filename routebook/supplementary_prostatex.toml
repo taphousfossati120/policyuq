@@ -1,0 +1,8 @@
+name = "supplementary_prostatex"
+
+[data]
+name = "prostatex"
+root = "data/prostatex"
+n_cases = 204
+folds = 5
+seed = 0

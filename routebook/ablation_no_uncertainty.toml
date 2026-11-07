@@ -1,0 +1,4 @@
+name = "ablation_no_uncertainty"
+
+[ablation]
+use_uncertainty = false

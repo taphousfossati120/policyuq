@@ -1,0 +1,77 @@
+name = "main"
+world_size = 4
+precision = "amp"
+seed = 0
+
+[encoder]
+fusion_layers = 4
+fusion_heads = 8
+vocab_size = 87
+temperature = 0.07
+text_dim = 768
+
+[encoder.volume]
+height = 192
+width = 192
+depth = 48
+patch = [4, 4, 2]
+window = [6, 6, 6]
+embed_dim = 768
+stage_dims = [96, 192, 384, 768]
+in_channels = 1
+
+[policy]
+gru_layers = 2
+gru_hidden = 512
+n_tokens = 432
+n_sequences = 3
+policy_hidden = 256
+max_steps = 12
+
+[uncertainty]
+mc_samples = 20
+stochastic_passes = 10
+dropout = 0.1
+sensitivity_target = 0.95
+
+[reward]
+alpha = 1.0
+beta = 0.5
+step_cost = 0.02
+
+[ppo]
+clip = 0.2
+gamma = 0.99
+gae_lambda = 0.95
+entropy = 0.01
+epochs_per_round = 4
+
+[optim]
+lr = 3e-4
+weight_decay = 1e-2
+grad_clip = 1.0
+batch_size = 16
+
+[phases]
+pretrain_epochs = 50
+finetune_epochs = 30
+policy_epochs = 40
+policy_lr_scale = 0.1
+calibration_fraction = 0.15
+calibration_refresh = 5
+het_weight = 0.3
+early_stop_patience = 3
+
+[data]
+name = "pi_cai"
+root = "data/pi_cai"
+n_cases = 1500
+folds = 5
+seed = 0
+
+[ablation]
+use_vl_alignment = true
+use_policy = true
+use_uncertainty = true
+use_fusion = true
+policy_algorithm = "ppo"

@@ -1,0 +1,4 @@
+name = "ablation_reinforce"
+
+[ablation]
+policy_algorithm = "reinforce"

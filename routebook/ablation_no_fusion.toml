@@ -1,0 +1,4 @@
+name = "ablation_no_fusion"
+
+[ablation]
+use_fusion = false

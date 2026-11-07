@@ -1,0 +1,8 @@
+name = "supplementary_prostate158"
+
+[data]
+name = "prostate158"
+root = "data/prostate158"
+n_cases = 158
+folds = 1
+seed = 0
